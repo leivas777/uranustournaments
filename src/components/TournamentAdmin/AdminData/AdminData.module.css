@@ -1,0 +1,57 @@
+.club_data{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    margin-bottom: 1.5vh;
+    width: 50vw;
+}
+
+.club_data .title{
+    border: none;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1.5vh;
+}
+.modules .title{
+    border: none;
+}
+
+.modules .modules_data{
+    display: flex;
+    justify-content: space-around;
+}
+
+.modules_data .module{
+    border: 1px solid #000;
+    background: #eee; 
+    text-align: center;
+    width: 40%;
+}
+
+.club_data .formData{
+    border: 1px solid #eee;
+    padding: 1.5vh 1vw;
+}
+
+.club_data form{
+    display: grid;
+    margin-bottom: 1em;
+    flex-wrap: wrap;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+}
+
+.club_data form label:first-child{
+    grid-column: 1 / -1;
+}
+
+.club_data form label{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5em;
+}
+
+.club_data form input, .club_data form select{
+    width: 100%;
+    box-sizing: border-box;
+}

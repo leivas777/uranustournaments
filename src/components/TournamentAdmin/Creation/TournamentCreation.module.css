@@ -1,0 +1,520 @@
+/* Componente TournamentCreation */
+.tournamentCreationMain {
+    justify-content: center;
+    justify-items: center;
+
+    & .header {
+        margin: 10px 0 10px 0;
+        display: flex;
+        flex-direction: column;
+        max-width: 80%;
+        text-align: center;
+    }
+
+    & .container {
+        border: 1px solid #bcbcbc;
+        padding: 20px 20px;
+
+        & .containerData {
+            & .title {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+            }
+        }
+    }
+}
+
+/* Componentes gerais */
+.formMain {
+    width: 40vw;
+
+    & .formTitle {
+        & h5 {
+            font-size: 1em;
+        }
+    }
+
+    & .formData {
+        & h6 {
+            font-size: 1em;
+        }
+
+        & .formDetails {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            & .detailsBox {
+                border: 1px solid #bcbcbc;
+                padding: 15px 5px 15px 5px;
+
+                & label {
+                    font-size: .9em;
+                    display: flex;
+                    flex-direction: column;
+
+                    & select,
+                    input {
+                        font-size: .8em;
+                        background: #f3f6f4;
+                    }
+                }
+
+                & .microDetailsBox {
+                    border: 1px solid #bcbcbc;
+                    padding: 10px;
+                    display: flex;
+                    gap: 10px;
+                    justify-content: center;
+                    flex-wrap: wrap;
+
+                    & .microBox {
+                        border: 1px solid #bcbcbc;
+                        padding: 10px;
+                        text-align: center;
+                        gap: 10px;
+
+
+                        & .boxes {
+                            display: flex;
+                            gap: 10px;
+                            padding: 10px;
+                            justify-content: center;
+
+                            & label {
+                                font-size: .7em;
+                            }
+                        }
+
+                        & .detailBoxes {
+                            display: grid;
+                            grid-template-columns: repeat(3, 1fr);
+                            gap: 10px;
+
+                            & .detailBoxesText {
+                                grid-column: 1 / -1;
+                            }
+                        }
+                    }
+                }
+
+                & .choices {
+                    display: flex;
+                    justify-content: space-around;
+                }
+
+                & .autoCalendar {
+                    border: 1px solid #bcbcbc;
+                    padding: 5px;
+                    margin-bottom: 10px;
+                    max-width: 40%;
+                    text-align: center;
+
+                    & p {
+                        text-transform: uppercase;
+                    }
+
+                    & .fixtures {
+                        display: flex;
+                        gap: 10px;
+
+                        & label {
+                            font-size: .8em;
+                        }
+
+                        & input {
+                            transform: scale(.7);
+                        }
+                    }
+
+                    & .autoCalendarOptions {
+                        display: flex;
+                        justify-content: space-around;
+
+                        & input {
+                            transform: scale(.7);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.buttonsContainer {
+    display: flex;
+    margin: 10px 0 10px 0;
+    justify-content: space-around;
+    max-width: 100vw;
+
+    & button {
+        width: 200px;
+    }
+}
+
+.microDetailsBox .categoriesDetail{
+    display: flex;
+    flex-direction: column;
+}
+
+.customCategories {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+
+    & p {
+        font-size: .8em;
+        text-transform: uppercase;
+        text-decoration: underline;
+    }
+
+    & div {
+        display: flex;
+        gap: 10px;
+    }
+
+    & ul {
+        list-style: none;
+
+
+        & li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+    }
+}
+
+/*CourtsInfoForm*/
+.categoriesDetailInfo {
+    border: 1px solid #bcbcbc;
+    padding: 5px;
+}
+
+.categories {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid #bcbcbc;
+    padding: 5px;
+    margin-bottom: 10px;
+
+    & .categoriesDetail {
+        display: flex;
+        text-align: center;
+        gap: 10px;
+        align-self: center;
+
+        & .categoriesDetails {
+            display: grid;
+            font-size: .7em;
+            border: 1px solid #bcbcbc;
+            padding: 5px;
+
+            & .categoriesInformation {
+                display: grid;
+            }
+
+            & .categoriesInformation:last-child {
+                grid-column: 1 / -1;
+            }
+
+            & .categoriesMaxPart{
+                justify-content: center;
+                font-size: .8em;
+                margin-bottom: 5px;
+            }
+        }
+
+        & .categoriesDetails .categoriesTitle:first-child {
+            grid-column: 1 / -1;
+        }
+
+        & .categoriesDetails:last-child {
+            grid-column: 1 / -1;
+        }
+    }
+}
+
+.errorMessage {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.error {
+  color: #dc3545;
+  font-size: 0.8rem;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.infoText {
+  color: #6c757d;
+  font-style: italic;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.buttonsContainer {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.buttonsContainer button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+  min-width: 120px;
+}
+
+.buttonsContainer button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.saveBtn {
+  background-color: #28a745;
+  color: white;
+}
+
+.saveBtn:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+.backBtn {
+  background-color: #6c757d;
+  color: white;
+}
+
+.backBtn:hover:not(:disabled) {
+  background-color: #5a6268;
+}
+
+.cancelBtn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.cancelBtn:hover:not(:disabled) {
+  background-color: #c82333;
+}
+
+.microDetailsBox {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+}
+
+.microDetailsBox h5 {
+  margin: 0 0 1rem 0;
+  color: #495057;
+  font-size: 1.1rem;
+}
+
+.categoriesKoFase {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.categoriesKoFase label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.knockoutOptions {
+  background-color: #e3f2fd;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.knockoutOptions h6 {
+  margin: 0 0 0.5rem 0;
+  color: #1976d2;
+}
+
+.knockoutOptions label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.knockoutOptions input {
+  margin-top: 0.25rem;
+  width: 100px;
+}
+
+.categoryInfo {
+  color: #6c757d;
+  font-style: italic;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.helperText {
+  color: #6c757d;
+  font-style: italic;
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+}
+
+.infoText {
+  color: #6c757d;
+  font-style: italic;
+  margin: 2rem 0;
+  text-align: center;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.summaryItem label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.summaryItem input {
+  width: 100%;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  color: #495057;
+}
+
+.categoriesSection {
+  margin-top: 1.5rem;
+}
+
+.modalityGroup {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.modalityGroup h5 {
+  margin: 0 0 1rem 0;
+  color: #495057;
+}
+
+.categoriesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.categoryItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #e9ecef;
+}
+
+.categoryName {
+  font-weight: 500;
+  color: #495057;
+}
+
+.categoryDetails {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.gameStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.statItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #e3f2fd;
+  border-radius: 8px;
+  border-left: 4px solid #1976d2;
+}
+
+.statLabel {
+  font-weight: 500;
+  color: #1976d2;
+}
+
+.statValue {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #1976d2;
+}
+
+.modalityStats {
+  margin-top: 1.5rem;
+}
+
+.modalityStatItem {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #f1f8e9;
+  border-radius: 8px;
+  border-left: 4px solid #4caf50;
+}
+
+.modalityStatItem h5 {
+  margin: 0 0 0.5rem 0;
+  color: #2e7d32;
+}
+
+.modalityStatDetails {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.modalityStatDetails span {
+  font-size: 0.9rem;
+  color: #2e7d32;
+  background-color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.finalizeBtn {
+  background-color: #4caf50;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.finalizeBtn:hover:not(:disabled) {
+  background-color: #45a049;
+}

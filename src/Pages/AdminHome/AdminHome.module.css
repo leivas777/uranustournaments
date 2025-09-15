@@ -1,0 +1,10 @@
+.adminHome_main{
+    align-items: center;
+    justify-items: center;
+    margin-top: 10px
+}
+
+.adminHome_main .adminHome_titleContainer h3{
+    color: #76a5af;
+    text-transform: uppercase;
+}
