@@ -1,5 +1,5 @@
-const admin = requires('firebase-admin')
-const AdminUserService = require('../services/adminUserServices')
+const admin = require('firebase-admin')
+const AdminUserService = require('../services/adminUserService')
 
 const serviceAccount = require('../config/firebase-service-account.json')
 admin.initializeApp({
@@ -42,3 +42,4 @@ const authenticateFirebase = async(req, res, next) => {
 }
 
 module.exports = {authenticateFirebase}
+

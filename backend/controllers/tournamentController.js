@@ -1,5 +1,5 @@
 const pool = require("../db/db");
-const TournamentService = require("../services/tournamentServices");
+const TournamentService = require("../services/tournamentService");
 
 class TournamentController {
   async createDraft(req, res, next) {
