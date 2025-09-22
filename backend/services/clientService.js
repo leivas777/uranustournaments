@@ -21,7 +21,6 @@ class ClientService {
           throw new Error(`Endereço invaálido: ${errorMessages}`);
         }
 
-        console.log("✅ Endereço válido");
       }
 
       // Verificar se documento já existe
@@ -74,7 +73,6 @@ class ClientService {
       if (typeof createdClient.address === "string") {
         try {
           createdClient.address = JSON.parse(createdClient.address);
-          console.log("✅ Parse do endereço realizado com sucesso");
         } catch (erro) {
           console.error("❌ Erro no parse do endereço:", parseError);
           createdClient.address = {};
@@ -170,7 +168,7 @@ class ClientService {
       `;
 
       const result = await queryClient.query(query, [documentNumber]);
-      return result.rows[0] || null; // CORRIGIDO: era result.rows(0)
+      return result.rows[0] || null;
     } catch (error) {
       console.error("❌ Erro no ClientService.getByDocument:", error);
       throw error;
@@ -187,7 +185,7 @@ class ClientService {
       `;
 
       const result = await queryClient.query(query, [email]);
-      return result.rows[0] || null; // CORRIGIDO: era result.rows(0)
+      return result.rows[0] || null;
     } catch (error) {
       console.error("❌ Erro no ClientService.getByEmail:", error);
       throw error;
