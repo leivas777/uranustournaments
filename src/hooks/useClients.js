@@ -14,11 +14,8 @@ export const useClients = () => {
     setSuccess(null);
 
     try {
-      console.log("🏢 Criando cliente:", clientData);
-
       const result = await ApiService.createClient(clientData);
 
-      console.log("✅ Cliente criado com sucesso:", result);
       setSuccess("Cliente criado com sucesso!");
 
       // Atualizar lista de clientes

@@ -24,7 +24,6 @@ const ClientManagement = () => {
 
   const handleCreateClient = async (clientData) => {
     try {
-      console.log("📋 Dados do cliente para envio:", clientData);
 
       if (!clientData.name || !clientData.email || !clientData.documentNumber) {
         throw new Error("Dados obrigatórios não preenchidos.");
@@ -35,7 +34,6 @@ const ClientManagement = () => {
       }
 
       const result = await createClient(clientData);
-      console.log("✅ Cliente criado:", result);
 
       // Voltar para a lista após criar
       setTimeout(() => {
@@ -48,14 +46,12 @@ const ClientManagement = () => {
 
   const handleEditClient = async (clientData) => {
     try {
-      console.log("📋 Dados do cliente para atualização:", clientData);
 
       if (!editingClient?.id) {
         throw new Error("ID do cliente não encontrado.");
       }
 
       const result = await updateClient(editingClient.id, clientData);
-      console.log("✅ Cliente atualizado:", result);
 
       // Voltar para a lista após editar
       setTimeout(() => {
@@ -75,7 +71,6 @@ const ClientManagement = () => {
     if (confirmDelete) {
       try {
         await deleteClient(client.id);
-        console.log("✅ Cliente deletado:", client.id);
       } catch (error) {
         console.error("❌ Erro ao deletar cliente:", error);
       }
