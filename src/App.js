@@ -12,7 +12,7 @@ import Login from "./Pages/Login/Login.js";
 import Navbar from "./components/Navbar/Navbar.js";
 import SignUp from "./Pages/SignUp/SignUp.js";
 import AdminLogin from "./Pages/AdminLogin/AdminLogin.js";
-import ClientCreation from "./Pages/MasterAdmin/Creation/Client/ClientCreation.js"
+import ClientManagement from "./Pages/MasterAdmin/Creation/Client/ClientManagement.js"
 import AdminHome from "./Pages/AdminHome/AdminHome.js";
 
 //Bootstrap
@@ -29,7 +29,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/adminLogin" element={<AdminLogin />} />
           <Route path="/adminHome" element={<AdminHome/>}/>
-          <Route path="/client-creation" element={<ClientCreation/>}/>
+          <Route path="/client-management" element={<ClientManagement/>}/>
         </Routes>
       </BrowserRouter>
     </div>

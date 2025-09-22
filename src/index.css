@@ -28,4 +28,6 @@ body{
   background: #fff;
   color: #6aa84f;
 }
-
+.col-span-1 {
+  grid-column: span 1;
+}

@@ -6,7 +6,7 @@ async function testFirebaseSetup() {
   
   try {
     // Importar após carregar dotenv
-    const { getFirebaseAuth, testFirebaseConnection, getFirebaseInfo } = require('./config/firebase');
+    const { getFirebaseAuth, testFirebaseConnection, getFirebaseInfo } = require('../config/firebase');
 
     // Teste 1: Informações da app
     console.log('1️⃣ Verificando informações da app...');

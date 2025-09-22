@@ -1,0 +1,449 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.formContainer {
+  max-width: 100%;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #f8fafc;
+
+}
+
+.formSection {
+  background-color: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  transition: box-shadow 0.2s ease;
+}
+
+.formSection:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== COMPONENTE DE ENDEREÇO ===== */
+.addressForm {
+  width: 100%;
+      background-color: #111827;
+}
+
+/* ===== TÍTULO DA SEÇÃO DE ENDEREÇO ===== */
+.addressForm .addressTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.addressForm .addressTitle::before {
+  content: '';
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-radius: 2px;
+}
+
+.formInput,
+.formSelect {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  background-color: white;
+}
+
+.formInput:focus,
+.formSelect:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.formInput:hover,
+.formSelect:hover {
+  border-color: #9ca3af;
+}
+
+/* ===== PLACEHOLDERS ===== */
+.formInput::placeholder {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* ===== ESTADOS DE ERRO ===== */
+.formInput.error,
+.formSelect.error {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+}
+
+.formInput.error:focus,
+.formSelect.error:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* ===== GRID DE ENDEREÇO ===== */
+.addressGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* Responsividade do grid */
+@media (min-width: 768px) {
+  .addressGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .addressGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===== CAMPOS ESPECÍFICOS DO ENDEREÇO ===== */
+.addressField {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Campo CEP com funcionalidades especiais */
+.cepField {
+  position: relative;
+}
+
+.cepInputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cepLoading {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.cepSpinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #e5e7eb;
+  border-top: 2px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* ===== MENSAGENS DE STATUS ===== */
+.statusMessage {
+  font-size: 12px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
+
+.statusSuccess {
+  color: #10b981;
+}
+
+.statusSuccess::before {
+  content: '✅';
+  font-size: 10px;
+}
+
+.statusError {
+  color: #ef4444;
+}
+
+.statusError::before {
+  content: '⚠';
+  font-size: 10px;
+}
+
+/* ===== CAMPOS COM LARGURAS ESPECÍFICAS ===== */
+.addresGrid .col-span-1 {
+  grid-column: span 1;
+}
+
+@media (min-width: 768px) {
+  .addressGrid .col-span-2 {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .addressGrid .col-span-2 {
+    grid-column: span 2;
+  }
+}
+
+/* ===== PREVIEW DO ENDEREÇO ===== */
+.addressPreview {
+  margin-top: 20px;
+  padding: 16px;
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.addressPreview::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #10b981, #3b82f6, #8b5cf6);
+}
+
+.addressPreviewTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.addressPreviewTitle::before {
+  content: '🏠';
+  font-size: 12px;
+}
+
+.addressPreviewContent {
+  font-size: 14px;
+  color: #1f2937;
+  line-height: 1.5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  background-color: white;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  white-space: pre-line;
+}
+
+.addressPreviewContent:empty::before {
+  content: 'O endereço aparecerá aqui conforme você preenche os campos...';
+  color: #9ca3af;
+  font-style: italic;
+  font-family: inherit;
+}
+
+/* ===== ANIMAÇÕES ESPECÍFICAS ===== */
+.addressField {
+  animation: slideInUp 0.3s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== ESTADOS ESPECIAIS DOS INPUTS ===== */
+.addressForm .formInput:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.addressForm .formInput.cepValid {
+  border-color: #10b981;
+  background-color: #f0fdf4;
+}
+
+.addressForm .formInput.autoFilled {
+  background-color: #eff6ff;
+  border-color: #3b82f6;
+  animation: autoFillPulse 0.5s ease-out;
+}
+
+@keyframes autoFillPulse {
+  0% {
+    background-color: #dbeafe;
+  }
+  100% {
+    background-color: #eff6ff;
+  }
+}
+
+/* ===== RESPONSIVIDADE MOBILE ===== */
+@media (max-width: 767px) {
+  .addressGrid {
+    gap: 12px;
+  }
+  
+  .addressPreview {
+    margin-top: 16px;
+    padding: 12px;
+  }
+  
+  .addressPreviewContent {
+    font-size: 13px;
+    padding: 10px;
+  }
+}
+
+/* ===== ACESSIBILIDADE ===== */
+.formInput:focus-visible,
+.formSelect:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+/* ===== MELHORIAS VISUAIS ===== */
+.formInput:valid {
+  border-color: #10b981;
+}
+.addressForm .formLabel {
+  position: relative;
+}
+
+.formLabel .required::after {
+  content: '';
+  position: absolute;
+  top: -0px;
+  right: 0px;
+  width: 4px;
+  height: 4px;
+  background-color: #ef4444;
+  border-radius: 50%;
+}
+
+/* ===== HOVER EFFECTS ===== */
+.addressPreview:hover {
+  background: linear-gradient(135deg, #f1f5f9, #ddd6fe);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+/* ===== DARK MODE PARA ENDEREÇO ===== */
+@media (prefers-color-scheme: dark) {
+  .addressForm .addressTitle {
+    color: #f9fafb;
+  }
+  
+  .addressPreview {
+    background: linear-gradient(135deg, #374151, #4b5563);
+    border-color: #6b7280;
+  }
+  
+  .addressPreviewTitle {
+    color: #e5e7eb;
+  }
+  
+  .addressPreviewContent {
+    background-color: #1f2937;
+    color: #f9fafb;
+    border-color: #4b5563;
+  }
+  
+  .addressForm .formInput.cepValid {
+    background-color: #064e3b;
+    border-color: #10b981;
+  }
+  
+  .addressForm .formInput.autoFilled {
+    background-color: #1e3a8a;
+    border-color: #3b82f6;
+  }
+}
+
+/* ===== LOADING STATE PARA CEP ===== */
+.cepField.loading .formInput {
+  padding-right: 40px;
+}
+
+.cepField.loading .formInput:focus {
+  border-color: #3b82f6;
+}
+
+/* ===== TRANSIÇÕES SUAVES ===== */
+.addressForm .formInput,
+.addressPreview {
+  transition: all 0.2s ease;
+}
+
+.statusMessage {
+  transition: opacity 0.3s ease;
+}
+
+/* ===== INDICADORES VISUAIS ===== */
+.addressForm .formInput[data-auto-filled="true"] {
+  position: relative;
+}
+
+.addressForm .formInput[data-auto-filled="true"]::after {
+  content: '🔄';
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  opacity: 0.7;
+}
+.formSection {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ===== DARK MODE (OPCIONAL) ===== */
+@media (prefers-color-scheme: dark) {
+  .formContainer {
+    background-color: #111827;
+    color: #f9fafb;
+  }
+  
+  .formSection {
+    background-color: #1f2937;
+    border-color: #374151;
+  }
+  
+  .formInput,
+  .formSelect {
+    background-color: #374151;
+    border-color: #4b5563;
+    color: #f9fafb;
+  }
+  
+  .sectionTitle {
+    color: #f9fafb;
+  }
+  
+  .formLabel {
+    color: #d1d5db;
+  }
+}
+

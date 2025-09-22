@@ -3,7 +3,6 @@ const axios = require('axios');
 
 class CepService {
   async getAddressByCep(cep) {
-    console.log('🌐 CepService - Buscando CEP:', cep);
     try {
       // Limpar CEP (remover caracteres não numéricos)
       const cleanCep = cep.replace(/\D/g, '');
@@ -20,7 +19,6 @@ class CepService {
           'User-Agent': 'Uranus-Tournaments-API/1.0'
         }
       });
-        console.log('📥 Resposta do ViaCEP:', response.data);
       const data = response.data;
 
       // Verificar se CEP foi encontrado
@@ -43,7 +41,6 @@ class CepService {
         }
       };
 
-      console.log('✅ Resultado formatado:', result)
       return result      
 
     } catch (error) {
