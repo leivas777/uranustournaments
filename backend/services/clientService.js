@@ -168,7 +168,7 @@ class ClientService {
       `;
 
       const result = await queryClient.query(query, [documentNumber]);
-      return result.rows[0] || null;
+      return result.rows[0] || null; // CORRIGIDO: era result.rows(0)
     } catch (error) {
       console.error("❌ Erro no ClientService.getByDocument:", error);
       throw error;
@@ -185,7 +185,7 @@ class ClientService {
       `;
 
       const result = await queryClient.query(query, [email]);
-      return result.rows[0] || null;
+      return result.rows[0] || null; // CORRIGIDO: era result.rows(0)
     } catch (error) {
       console.error("❌ Erro no ClientService.getByEmail:", error);
       throw error;

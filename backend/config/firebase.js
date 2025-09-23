@@ -1,4 +1,4 @@
-// config/firebase.js
+// backend/config/firebase.js (versão atualizada mantendo sua estrutura)
 const admin = require("firebase-admin");
 
 let firebaseApp;
@@ -126,10 +126,141 @@ const getFirebaseInfo = () => {
   }
 };
 
+// ============================================
+// NOVAS FUNÇÕES PARA AUTENTICAÇÃO
+// ============================================
+
+// Função para verificar token Firebase (NOVA)
+const verifyFirebaseToken = async (idToken) => {
+  try {
+    if (!isFirebaseConfigured()) {
+      throw new Error('Firebase não configurado');
+    }
+
+    const auth = getFirebaseAuth();
+    const decodedToken = await auth.verifyIdToken(idToken);
+    
+    return {
+      success: true,
+      user: {
+        uid: decodedToken.uid,
+        email: decodedToken.email,
+        email_verified: decodedToken.email_verified,
+        name: decodedToken.name || decodedToken.email,
+        picture: decodedToken.picture,
+        phone: decodedToken.phone_number
+      }
+    };
+  } catch (error) {
+    console.error('❌ Erro ao verificar token Firebase:', error.message);
+    return {
+      success: false,
+      error: error.message
+    };
+  }
+};
+
+// Função para criar usuário no Firebase (NOVA)
+const createFirebaseUser = async (userData) => {
+  try {
+    if (!isFirebaseConfigured()) {
+      throw new Error('Firebase não configurado');
+    }
+
+    const auth = getFirebaseAuth();
+    const userRecord = await auth.createUser({
+      email: userData.email,
+      password: userData.password,
+      displayName: userData.name,
+      phoneNumber: userData.phone,
+      emailVerified: false
+    });
+
+    return {
+      success: true,
+      user: {
+        uid: userRecord.uid,
+        email: userRecord.email,
+        name: userRecord.displayName,
+        email_verified: userRecord.emailVerified
+      }
+    };
+  } catch (error) {
+    console.error('❌ Erro ao criar usuário Firebase:', error.message);
+    return {
+      success: false,
+      error: error.message
+    };
+  }
+};
+
+// Função para atualizar usuário no Firebase (NOVA)
+const updateFirebaseUser = async (uid, userData) => {
+  try {
+    if (!isFirebaseConfigured()) {
+      throw new Error('Firebase não configurado');
+    }
+
+    const auth = getFirebaseAuth();
+    const updateData = {};
+
+    if (userData.email) updateData.email = userData.email;
+    if (userData.name) updateData.displayName = userData.name;
+    if (userData.phone) updateData.phoneNumber = userData.phone;
+    if (userData.password) updateData.password = userData.password;
+
+    const userRecord = await auth.updateUser(uid, updateData);
+
+    return {
+      success: true,
+      user: {
+        uid: userRecord.uid,
+        email: userRecord.email,
+        name: userRecord.displayName,
+        email_verified: userRecord.emailVerified
+      }
+    };
+  } catch (error) {
+    console.error('❌ Erro ao atualizar usuário Firebase:', error.message);
+    return {
+      success: false,
+      error: error.message
+    };
+  }
+};
+
+// Função para deletar usuário no Firebase (NOVA)
+const deleteFirebaseUser = async (uid) => {
+  try {
+    if (!isFirebaseConfigured()) {
+      throw new Error('Firebase não configurado');
+    }
+
+    const auth = getFirebaseAuth();
+    await auth.deleteUser(uid);
+
+    return {
+      success: true,
+      message: 'Usuário deletado do Firebase'
+    };
+  } catch (error) {
+    console.error('❌ Erro ao deletar usuário Firebase:', error.message);
+    return {
+      success: false,
+      error: error.message
+    };
+  }
+};
+
 module.exports = { 
   initializeFirebase, 
   getFirebaseAuth, 
   isFirebaseConfigured,
   testFirebaseConnection,
-  getFirebaseInfo
+  getFirebaseInfo,
+  // Novas funções de autenticação
+  verifyFirebaseToken,
+  createFirebaseUser,
+  updateFirebaseUser,
+  deleteFirebaseUser
 };
